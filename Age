@@ -1,0 +1,33 @@
+def vraag_leeftijd():
+    while True:
+        leeftijd_input = input("Wat is jouw leeftijd? ")
+ 
+       
+        if not leeftijd_input.isdigit():
+            print("Voer een heel getal tussen 0 en 120 in.")
+            continue
+ 
+        leeftijd = int(leeftijd_input)
+ 
+       
+        if 0 <= leeftijd <= 120:
+            return leeftijd
+        else:
+            print("Voer een heel getal tussen 0 en 120 in.")
+ 
+ 
+ 
+naam = input("Wat is jouw naam? ")
+print("Hallo, " + naam + "!")
+ 
+leeftijd = vraag_leeftijd()
+print("Je leeftijd is: " + str(leeftijd))
+ 
+leeftijd = leeftijd - 4
+ 
+if leeftijd <= 17:
+    print("Je bent minderjarig.")
+elif leeftijd >= 66:
+    print("Je mag met pensioen.")
+else:
+    print("Je bent volwassen.")
