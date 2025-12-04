@@ -1,0 +1,48 @@
+import random
+getal = 0
+aantal_pogingen = 0
+print("Welkom bij gokspel!")
+print("kies een moeilijkheidsgraad:")
+print("1. Makkelijk (onbeperkt aantal pogingen)")
+print("2. Moeilijk (maximaal 20 pogingen)")
+print("3. Expert (maximaal 10 pogingen)")
+keuze = input("Maak een keuze (1,2 of 3): ")
+ 
+max_pogingen = aantal_pogingen
+if keuze == "1":
+    max_pogingen = None
+elif keuze == "2":
+    max_pogingen = 20  
+elif keuze == "3":
+    max_pogingen = 10
+ 
+print("kies een level")
+print("1. Level 1 (0-50)")
+print("2. Level 2 (0-100)")
+level = input ("Maak een keuze(1 of 2):")
+ 
+over = getal
+ 
+if level == "1":
+    getal = random.randint(0, 50)  
+elif level == "2":
+    getal = random.randint(0, 100)  
+else:
+    print("Ongeldige keuze, standaard level 2 gekozen.")
+    getal = random.randint(0, 100)
+ 
+ 
+print("aantal pogingen:", aantal_pogingen)
+ 
+while True:
+    gok = int(input("Doe een gok tussen 0 en 100: "))
+    if gok < getal:
+        print("Hoger!")
+    elif gok > getal:
+        print("Lager!")
+    else:
+        print("Gefeliciteerd! Je hebt het getal geraden.")
+        break
+    aantal_pogingen += 1
+    print("aantal pogingen:", aantal_pogingen)  
+ 
