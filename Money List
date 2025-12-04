@@ -1,0 +1,47 @@
+# Budgetprogramma - laat de gebruiker inkomen en uitgaven invullen
+# en geeft daarna een overzicht met totaal, percentages en advies.
+
+# 1. Input
+inkomen = float(input("Hoeveel ontvang je per maand? "))
+
+boodschappen = float(input("Hoeveel geef je uit aan boodschappen? "))
+vaste_lasten = float(input("Hoeveel geef je uit aan vaste lasten? "))
+vrije_tijd = float(input("Hoeveel geef je uit aan vrije tijd? "))
+
+# 2. Berekeningen
+totaal = boodschappen + vaste_lasten + vrije_tijd
+over = inkomen - totaal
+
+percentage_bo = (boodschappen / inkomen) * 100
+percentage_vl = (vaste_lasten / inkomen) * 100
+percentage_vt = (vrije_tijd / inkomen) * 100
+
+# Grootste categorie bepalen
+percentages = {
+    "boodschappen": percentage_bo,
+    "vaste lasten": percentage_vl,
+    "vrije tijd": percentage_vt
+}
+grootste_categorie = max(percentages, key=percentages.get)
+grootste_percentage = percentages[grootste_categorie]
+
+# 3. Advies met if/elif/else
+if totaal > inkomen:
+    advies = "Je geeft meer uit dan je binnenkrijgt. Pas op met je budget!"
+elif totaal == inkomen:
+    advies = "Je geeft precies uit wat je ontvangt. Let op dat je niets extra uitgeeft."
+else:
+    advies = "Je houdt geld over. Mooi gedaan!"
+
+# 4. Overzicht tonen
+print("\n--- MAANDELIJKS OVERZICHT ---")
+print(f"Totaal uitgegeven: €{totaal:.2f}")
+print(f"Geld over: €{over:.2f}")
+
+print("\n--- PERCENTAGES ---")
+print(f"Boodschappen: {percentage_bo:.1f}%")
+print(f"Vaste lasten: {percentage_vl:.1f}%")
+print(f"Vrije tijd: {percentage_vt:.1f}%")
+
+print("\nAdvies:", advies)
+print(f"Meest uitgegeven categorie: {grootste_categorie} ({grootste_percentage:.1f}%)")
